@@ -13,7 +13,7 @@ const Hero = () => {
             <div className='col-span-5 pt-4 pb-4  md:pt-44 justify-center text-center'>
                 <div className='flex flex-col gap-6 md:gap-12'>
                     <div className=''>
-                        <h1 className='text-6xl font-bold leading-[6.5rem] pl-2  drop-shadow-xl tracking-wide'>Servirus</h1>
+                        <h1 className='text-6xl md:text-8xl font-bold leading-[6.5rem] pl-2  drop-shadow-xl tracking-wide md:pb-6'>Servirus</h1>
                         <span className='text-secondary relative p-2 border-8 border-secondary text-4xl font-bold 
                             drop-shadow-sm tracking-wide'>
                             Automatismos
@@ -27,22 +27,22 @@ const Hero = () => {
                          p-2 bg-secondary rounded-full box-content' />
                         </span>
                     </div>
-                    <p className='pt-2 px-8 text-gray-500 text-2xl leading-[2.5rem] drop-shadow-xl'>Todas las soluciones para su
+                    <p className='pt-8 px-8 text-gray-500 text-2xl md:text-3xl leading-[2.5rem] drop-shadow-xl'>Todas las soluciones para su
                         hogar y empresa</p>
                     <div className='flex flex-col lg:flex-row items-center gap-4 justify-center'>
                         <button className='bg-secondary text-white py-2 px-8 rounded-xl text-xl hover:opacity-80 hover:scale-110 transition-all duration-200 shadow-xl'>
                             Contactanos
                         </button>
-                        <button className='flex items-center gap-1 py-2 px-8  text-xl hover:scale-110  transition-all duration-200'>
+                        <button className=' flex items-center gap-1 py-2 px-8  text-xl hover:scale-110  transition-all duration-200'>
                             <RiArrowRightCircleLine className='text-3xl text-secondary drop-shadow-xl' /> Ver mas
                         </button>
                     </div>
                 </div>
             </div>
-            <div className='hidden md:flex col-span-4 md:mr-4  pt-24  object-cover relative'>
+            <div className='hidden md:flex col-span-4 md:mr-4  pt-24   object-cover relative'>
                 <img src="servirus-inicio.png" className='w-96 h-96 ml-2' />
-                <RiCheckboxBlankFill className='absolute md:top-[7.5rem] lg:top-[7rem] shadow-lg  
-                md:text-[342px] lg:text-[400px] text-gray-300 p-[.5px] bg-gray-300 -z-10 border-[8px] border-secondary rounded-2xl' />
+                <RiCheckboxBlankFill className='absolute top-[7.5rem] lg:top-[7rem] shadow-lg  
+                md:text-[342px] lg:text-[400px]  text-gray-300 p-[.5px] bg-gray-300 -z-10 border-[8px] border-secondary rounded-2xl' />
             </div>
         </section>);
 

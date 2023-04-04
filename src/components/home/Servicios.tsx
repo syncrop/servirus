@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 
 const Servicios = () => {
     return (
-        <div className='bg-gray-100  p-8 flex flex-col items-center justify-center gap-8'>
+        <div className='bg-gray-200 p-8 flex flex-col items-center justify-center gap-8'>
             <h1 className='text-4xl font-medium text-gray-800 tracking-normal'>Nuestros Servicios</h1>
             <div className='grid grid-cols-2 md:grid-cols-3 items-center gap-12 text-xl md:text-lg md:text-xl text-gray-500'>
                 <div className='flex flex-col justify-center text-center'>

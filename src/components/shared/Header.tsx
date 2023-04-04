@@ -32,7 +32,7 @@ const Header = () => {
           isPending ? "pending" : isActive ? "text-white text-lg" :
             'hover:scale-110 duration-100 hover:text-primary '
         }>Sobre Nosotros</NavLink>
-        <NavLink to='/contacto' className={({ isActive, isPending }) =>
+        <NavLink to='/contact' className={({ isActive, isPending }) =>
           isPending ? "pending" : isActive ? "text-white text-lg" :
             'hover:scale-110 duration-100 hover:text-primary '
         }>Contacto</NavLink>

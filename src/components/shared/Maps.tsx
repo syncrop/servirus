@@ -3,8 +3,8 @@ import { useMemo, useState } from "react";
 import { GoogleMap, useLoadScript, Marker, InfoWindow, useJsApiLoader, } from "@react-google-maps/api";
 
 const mapContainerStyle = {
-    widtt: '500px',
-    height: '500px'
+    width: '100vh',
+    height: '500px',
 }
 
 const center = {
@@ -19,6 +19,7 @@ const Maps = () => {
 
     const center = useMemo(() => ({ lat: 37.312927, lng: -6.851553 }), [])
     return isLoaded ? (
+        <div className='shadow-2xl '>
         <GoogleMap
             mapContainerStyle={mapContainerStyle}
             center={center}
@@ -26,6 +27,8 @@ const Maps = () => {
         >
             <Marker position={center} />
         </GoogleMap>
+            
+        </div>
     ) : <></>;
 }
 
