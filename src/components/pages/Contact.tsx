@@ -31,15 +31,15 @@ const Contact = () => {
           : (
             <div className='flex flex-col gap-4 md:px-40 container '>
               <h1 className='font-bold text-4xl text-center'>Contactanos</h1>
-              <p className='text-2xl text-gray-500 text-center '>Puedes enviarnos un email como llamarnos en el número de teléfono que aparece abajo.</p>
-              <div className='flex flex-row gap-8'>
+              <p className='text-2xl px-6 text-gray-500 text-center '>Puedes enviarnos un email como llamarnos en el número de teléfono que aparece abajo.</p>
+              <div className='flex flex-col px-8 md:flex-row gap-8'>
                 <div className=' mt-4 lg:w-3/4 bg-gray-200 px-8 py-8 rounded-lg shadow-xl'>
-                  <div className='grid grid-cols-1 md:grid-cols-2 justify-between gap-12'>
+                  <div className='grid grid-cols-1 md:grid-cols-2 justify-between md:gap-12'>
                     <div className='flex flex-col'>
                       <label className='text-lg text-gray-800'>Nombre</label>
                       <input type="text" placeholder='Su Nombre' className='border-2 border-gray-800 rounded-lg px-2 py-2  bg-gray-100' />
                     </div>
-                    <div className='flex flex-col'>
+                    <div className='flex flex-col mt-4'>
                       <label className='text-lg text-gray-800'>Apellidos</label>
                       <input type="text" placeholder='Su apellido' className='border-2 border-gray-800 rounded-lg px-2 py-2  bg-gray-100' />
                     </div>
@@ -49,7 +49,7 @@ const Contact = () => {
                       <label className='text-lg text-gray-800'>Email</label>
                       <input type="email" placeholder='email@email.com' className='border-2 border-gray-800 rounded-lg px-2 py-2   bg-gray-100' />
                     </div>
-                    <div className='flex flex-col md:w-full'>
+                    <div className='flex flex-col md:w-full mt-4'>
                       <label className='text-lg text-gray-800'>Telefono</label>
                       <input type="phone" placeholder='677 777 777' className='border-2 border-gray-800 rounded-lg px-2 py-2  bg-gray-100' />
                     </div>

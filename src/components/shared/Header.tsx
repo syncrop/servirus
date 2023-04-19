@@ -7,10 +7,10 @@ const Header = () => {
   return (
     <header className='shadow-xl bg-header fixed flex items-center w-full justify-between lg:justify-start pb-2 px-8 h-24 z-50'>
       <div className='lg:w-1/6 text-center mb-4 '>
-        <a href='#' className='text-3xl font-bold relative p-2  bg-header z-30 text-white'>
+        <NavLink to='/' className='text-3xl font-bold relative p-2  bg-header z-30 text-white'>
           Servirus <span className='text-primary text-6xl '>.</span>{" "}
           <RiCheckboxBlankCircleFill className='absolute -left-4 -bottom-4 text-primary -z-10' />
-        </a>
+        </NavLink>
       </div>
       <nav className={`fixed  bg-header z-20 text-gray-200 w-[80%] md:w-[40%] lg:w-full h-full ${showMenu ? 'left-0' : '-left-full'} 
         top-0 lg:static flex-1 flex flex-col lg:flex-row items-center justify-center gap-10

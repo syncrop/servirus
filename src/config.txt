@@ -1,2 +1,7 @@
 //Google Maps
-apiKey={"AIzaSyAoZGkIADd4F06I9T8onBYpUIKqLjmEt-4"}
+apiKey={"AIzaSyBECvemRKu8--zuEL_qUbBd0eyWnMjOXnw"}
+
+gcloud init
+gcloud app deploy
+
+https://servirus.ew.r.appspot.com/about
