@@ -26,8 +26,11 @@ const Hero = () => {
                          p-2 bg-black rounded-full box-content' />
                         </span>
                     </div>
-                    <p className='pt-8 px-8 text-gray-500 text-2xl md:text-3xl leading-[2.5rem] drop-shadow-xl'>Todas las soluciones para su
-                        hogar y empresa</p>
+                    <div>
+                        <p className='pt-8 px-8 text-gray-500 text-2xl md:text-3xl leading-[2.5rem] drop-shadow-xl'>Abriendo puertas hacia el futuro</p>
+                        <p className='mt-4 px-8 text-gray-500 text-xl md:text-xl leading-[2.5rem] drop-shadow-xl'>Somos una empresa especializada en el montaje y
+                            mantenimiento de puertas automáticas, domotica  y equipos de bombeo de agua . Podemos aconsejarles y colocarles el sistema que mejor se ajuste a sus necesidades.</p>
+                    </div>
                     <div className='flex flex-col lg:flex-row items-center gap-4 justify-center'>
                         <NavLink to='/contact' className='bg-secondary text-white py-2 px-8 rounded-xl text-xl hover:opacity-80 hover:scale-110 transition-all duration-200 shadow-xl'>
                             Contactanos

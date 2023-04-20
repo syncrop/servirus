@@ -7,6 +7,7 @@ import ScrollToTop from '../shared/ScrollToTop';
 import React, { useEffect, useMemo, useState } from 'react';
 import Maps from '../shared/Maps';
 import { GoogleMap, useLoadScript, Marker, useJsApiLoader, } from "@react-google-maps/api";
+import { NavLink } from 'react-router-dom';
 
 const mapContainerStyle = {
     width: '60vh',
@@ -52,11 +53,28 @@ function App() {
                     </div>
                 )
                     : (
-                        <div className=' pt-32 flex flex-col items-center justify-center gap-4'>
+                        <div className='container mx-auto pt-32 flex flex-col items-center justify-center gap-4'>
                             <h1 className='text-4xl font-bold text-gray-800 tracking-normal'>Sobre Nosotros</h1>
-                            <p className='text-2xl  text-gray-500 text-center'>Nos situamos en la localidad de San Juan del Puerto en Huelva, en el Polígono Dominicano </p>
+                            <div className='grid lg:grid-cols-2 md:px-20 gap-12 lg:mt-8'>
+                                <p className='text-lg  text-gray-500 text-justify'>
+                                    Somos una empresa dedicada  al sector de las puertas automáticas en la provincia de Huelva  y sus alrededores, con experiencia en el sector de
+                                    las puertas y del automatismo, lo que nos permite garantizarle una alta calidad en todos nuestros trabajos. Dedicada al montaje de instalaciones nuevas de puertas,
+                                    motorizaciones, etc, así como a la reparación y mantenimiento de puertas automáticas de todo tipo.
+                                </p>
+                                <div>
+                                    <p className='text-xl  text-gray-500 font-semibold text-center'>
+                                        Ayudándole a encontrar las soluciones más adecuadas.
+                                    </p>
+                                    <p className='text-lg mt-4  text-gray-500 text-justify'>
+                                        Le asesoramos y aconsejamos sobre sus instalaciones nuevas o existentes para un correcto funcionamiento de las mismas con las mejores marcas del mercado al mejor precio.
+                                    </p>
 
-                            <div className='flex flex-col items-center'>
+                                </div>
+
+                            </div>
+                            <p className='text-2xl md:px-20 gap-12 mt-8 text-gray-500 font-semibold text-center'>Nos situamos en la localidad de San Juan del Puerto en Huelva, en el Polígono Dominicano </p>
+
+                            <div className='flex flex-col items-center mt-4'>
                                 <div className='shadow-2xl hidden md:flex'>
                                     <GoogleMap
                                         mapContainerStyle={{
@@ -86,9 +104,9 @@ function App() {
 
                                 </div>
                             </div>
-                            <button className='bg-secondary w-3/5 text-white py-2 px-8 rounded-xl text-xl hover:opacity-80 hover:scale-110 transition-all duration-200 shadow-xl'>
+                            <NavLink to={'/contact'} className='text-center mt-8 bg-secondary w-3/5 md:w-2/5 text-white py-2 px-8 rounded-xl text-xl hover:opacity-80 hover:scale-110 transition-all duration-200 shadow-xl'>
                                 Contactanos
-                            </button>
+                            </NavLink>
                         </div>
                     )}
 
