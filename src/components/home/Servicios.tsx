@@ -1,30 +1,30 @@
 import React from 'react'
 import { RiSearch2Line } from "react-icons/ri";
-import { NavLink } from 'react-router-dom';
+import { NavLink } from "react-router-dom";
 
 
 const Servicios = () => {
     return (
-        <div className='bg-gray-200 p-8 flex flex-col items-center justify-center gap-8'>
+        <div className='bg-gray-200 p-8 flex flex-col items-center justify-center gap-8 py-16'>
             <h1 className='text-4xl font-medium text-gray-800 tracking-normal'>Nuestros Servicios</h1>
-            <div className='grid grid-cols-2 md:grid-cols-3 items-center gap-12 text-xl md:text-lg md:text-xl text-gray-500'>
-                <div className='flex flex-col justify-center text-center'>
+            <div className='grid grid-cols md:grid-cols-4 items-center gap-12 text-xl md:text-lg md:text-xl text-gray-500'>
+                <div className='transition-all duration-100 cursor-pointer hover:border-gray-500 border-2 hover:rounded-xl hover:shadow-2xl p-8 flex flex-col justify-center text-center'>
                     <img src="videportero.png" className='w-60 cursor-pointer' />
-                    <h2 className='cursor-pointer pt-4 hover:scale-110 transition-all duration-100'>Porteros Automáticos</h2>
+                    <h2 className='cursor-pointer pt-4 '>Cerrajeria</h2>
                 </div>
-                <div className='flex flex-col justify-center text-center pt-4 cursor-pointer'>
-                    <img src="puerta.png" className='w-64' />
-                    <h2 className='cursor-pointer pt-4 hover:scale-110 transition-all duration-100'>Puertas Automáticas</h2>
+                <div className='transition-all px-2 duration-100 cursor-pointer hover:border-gray-500 border-2 hover:rounded-xl hover:shadow-2xl flex flex-col justify-center text-center pt-2 cursor-pointer h-full'>
+                    <img src="grupopresion.png" className='w-64 ' />
+                    <h2 className='cursor-pointer   pt-4'>Grupo de Presión</h2>
                 </div>
-                <div className='flex flex-col justify-center text-center pt-2 cursor-pointer h-full'>
-                    <img src="camara.webp" className='w-64 ' />
-                    <h2 className='cursor-pointer  hover:scale-110 transition-all duration-100 '>Cámaras de Seguridad</h2>
+                <div className='transition-all h-full px-4 duration-100 hover:border-gray-500 border-2 hover:rounded-xl hover:shadow-2xl flex flex-col justify-center text-center pt-4 cursor-pointer'>
+                    <img src="puerta.png" className='w-60' />
+                    <h2 className='cursor-pointer  '>Automatismos</h2>
                 </div>
-                <div className=' cursor-pointer justify-self-center  py-auto md:col-span-3'>
-                    <NavLink to='/servicios' className='bg-secondary text-white py-2 px-8 rounded-xl text-xl hover:opacity-80 hover:scale-110 transition-all duration-200 shadow-xl 
-                        cursor-pointer   justify-center flex flex-row gap-3'
-                    >Ver más servicios</NavLink>
-                </div>
+                <NavLink to={'/servicios/domotica'} className='transition-all duration-100 cursor-pointer hover:border-gray-500 border-2 hover:rounded-xl hover:shadow-2xl flex flex-col justify-center text-center pt-2 cursor-pointer h-full'>
+                    <img src="camara.webp" className='w-60 self-center' />
+                    <h2 className='cursor-pointer  -mt-2'>Domótica</h2>
+                </NavLink>
+
             </div>
         </div>
     )

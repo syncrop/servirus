@@ -4,9 +4,13 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Servicios from './components/pages/Servicios';
+import Servicios from './components/pages/servicios/Servicios';
 import About from './components/pages/About';
 import Contact from './components/pages/Contact';
+import Cerrajeria from './components/pages/servicios/Cerrajeria';
+import Presion from './components/pages/servicios/Presion';
+import Domotica from './components/pages/servicios/Domotica';
+import Automatismo from './components/pages/servicios/Automatismo';
 
 const router = createBrowserRouter([
   {
@@ -24,6 +28,10 @@ const router = createBrowserRouter([
   {
     path: '/contact',
     element: <Contact />
+  },
+  {
+    path: '/servicios/:id',
+    element: <Servicios />
   },
   {
     path: '*',

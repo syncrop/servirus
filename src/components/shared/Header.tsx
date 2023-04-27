@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, Fragment } from 'react'
 import { RiCheckboxBlankCircleFill, RiMenuLine, RiCloseLine } from "react-icons/ri";
 import { NavLink } from "react-router-dom";
+import { Menu, Transition } from '@headlessui/react'
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -22,18 +23,110 @@ const Header = () => {
         }>
           Inicio</NavLink>
         <div>
-          <button className='hover:scale-110 duration-100 hover:text-primary ' onClick={() => setShowServicios(!showServicios)}>
-            Servicios
-          </button>
-          <div className={`${showServicios ? 'absolute  z-10 -ml-1 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1  ring-black ring-opacity-5 focus:outline-none ' : 'hidden'} `}
-            role="menu" aria-orientation="vertical" aria-labelledby="menu-button" >
-            <div className='py-1 ' role="none" >
-              <a href="#" className="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-200 hover:duration-500 active:bg-gray-100 active:duration-200 active:text-gray-500" role="menuitem" id="menu-item-0">Cerrajeria</a>
-              <a href="#" className="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-200 hover:duration-500 active:bg-gray-100 active:duration-200 active:text-gray-500" role="menuitem" id="menu-item-1">Grupo de presión</a>
-              <a href="#" className="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-200 hover:duration-500 active:bg-gray-100 active:duration-200 active:text-gray-500" role="menuitem" id="menu-item-2">Automatismo</a>
-              <a href="#" className="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-200 hover:duration-500 active:bg-gray-100 active:duration-200 active:text-gray-500" role="menuitem" id="menu-item-3">Domótica</a>
-            </div>
-          </div>
+          <Menu as="div" className="">
+            <Menu.Button className="hover:scale-110 duration-100 hover:text-primary " onClick={() => setShowServicios(!showServicios)}>
+              Servicios
+            </Menu.Button>
+            <Transition
+              as={Fragment}
+              enter="transition ease-out duration-100"
+              enterFrom="transform opacity-0 scale-95"
+              enterTo="transform opacity-100 scale-100"
+              leave="transition ease-in duration-75"
+              leaveFrom="transform opacity-100 scale-100"
+              leaveTo="transform opacity-0 scale-95"
+            >
+              <Menu.Items className="animate fade absolute  z-10 -ml-1 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1  ring-black ring-opacity-5 focus:outline-none">
+                <div className="px-1 py-1 ">
+                  <Menu.Item>
+                    {({ active }) => (
+                      <NavLink to="/servicios/cerrajeria"
+                        className={`${active ? 'bg-gray-200 text-gray-700' : 'text-gray-900'
+                          } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                      >
+                        Cerrajeria
+                      </NavLink>
+                    )}
+                  </Menu.Item>
+                  <Menu.Item>
+                    {({ active }) => (
+                      <NavLink to="/servicios/presion"
+                        className={`${active ? 'bg-gray-200 text-gray-700' : 'text-gray-900'
+                          } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                      >
+                        Grupo de presión
+                      </NavLink>
+                    )}
+                  </Menu.Item>
+                </div>
+                <div className="px-1 py-1">
+                  <Menu.Item>
+                    {({ active }) => (
+                      <NavLink to="/servicios/automatismos"
+                        className={`${active ? 'bg-gray-200 text-gray-700' : 'text-gray-900'
+                          } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                      >
+                        Automatismo
+                      </NavLink>
+                    )}
+                  </Menu.Item>
+                  <Menu.Item>
+                    {({ active }) => (
+                      <NavLink to="/servicios/domotica"
+                        className={`${active ? 'bg-gray-200 text-gray-700' : 'text-gray-900'
+                          } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                      >
+                        Domótica
+                      </NavLink>
+                    )}
+                  </Menu.Item>
+                </div>
+
+              </Menu.Items>
+            </Transition>
+          </Menu>
+        </div>
+        <div>
+          <Menu as="div" className="">
+            <Menu.Button className="hover:scale-110 duration-100 hover:text-primary " onClick={() => setShowServicios(!showServicios)}>
+              Mantenimientos
+            </Menu.Button>
+            <Transition
+              as={Fragment}
+              enter="transition ease-out duration-100"
+              enterFrom="transform opacity-0 scale-95"
+              enterTo="transform opacity-100 scale-100"
+              leave="transition ease-in duration-75"
+              leaveFrom="transform opacity-100 scale-100"
+              leaveTo="transform opacity-0 scale-95"
+            >
+              <Menu.Items className="animate fade absolute  z-10 -ml-1 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1  ring-black ring-opacity-5 focus:outline-none">
+                <div className="px-1 py-1 ">
+                  <Menu.Item>
+                    {({ active }) => (
+                      <NavLink to="/mantenimientos/puertas"
+                        className={`${active ? 'bg-gray-200 text-gray-700' : 'text-gray-900'
+                          } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                      >
+                        Puertas de Garaje
+                      </NavLink>
+                    )}
+                  </Menu.Item>
+                  <Menu.Item>
+                    {({ active }) => (
+                      <NavLink to="/mantenimientos/presion"
+                        className={`${active ? 'bg-gray-200 text-gray-700' : 'text-gray-900'
+                          } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                      >
+                        Grupo de presión
+                      </NavLink>
+                    )}
+                  </Menu.Item>
+                </div>
+
+              </Menu.Items>
+            </Transition>
+          </Menu>
         </div>
         <NavLink to='/trabajos' className={({ isActive, isPending }) =>
           isPending ? "pending" : isActive ? "text-white text-lg" :

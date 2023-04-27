@@ -5,6 +5,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        'serviurs': "url('/public/servirus2.jpeg')"
+      },
       colors: {
         primary: "#EFD857",
         secondary: "#1961f1",

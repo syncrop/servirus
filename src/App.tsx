@@ -9,6 +9,7 @@ import ScrollToTop from './components/shared/ScrollToTop';
 import { RiMessage2Line } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from 'react';
+const Fade = require("react-reveal/Fade")
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
   }, []);
   return (
     <div className=''>
+
       <ScrollToTop />
       <Header />
       {loading ? (
@@ -41,15 +43,19 @@ function App() {
       )
         : (
           <div>
-            <Hero />
-            <Servicios />
-            <Works />
-            <Footer />
-            <div className=' bg-secondary shadow-2xl text-white fixed right-6 bottom-8 -rotate-12
+            <Fade>
+
+              <Hero />
+
+              <Servicios />
+              <Works />
+              <Footer />
+              <div className=' bg-secondary shadow-2xl text-white fixed right-6 bottom-8 -rotate-12
         md:right-8 text-red text-4xl border-2 rounded-full border-gray-600 px-3 py-3 xl:mx-36
         cursor-pointer hover:scale-125 transition-all delay-100 active:bg-gray-400' onClick={routeChange}>
-              <RiMessage2Line />
-            </div>
+                <RiMessage2Line className='animate-pulse' />
+              </div>
+            </Fade>
           </div>
         )}
     </div>
