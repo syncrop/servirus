@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom";
 const Servicios = () => {
     return (
         <div className='bg-gray-200 p-8 flex flex-col items-center justify-center gap-8 py-16'>
-            <h1 className='text-4xl font-medium text-gray-800 tracking-normal'>Nuestros Servicios</h1>
+            <h1 className='text-4xl font-semibold text-gray-800 tracking-normal'>NUESTROS SERVICIOS</h1>
             <div className='grid grid-cols md:grid-cols-4 items-center gap-12 text-xl md:text-lg md:text-xl text-gray-500'>
                 <div className='transition-all duration-100 cursor-pointer hover:border-gray-500 border-2 hover:rounded-xl hover:shadow-2xl p-8 flex flex-col justify-center text-center'>
                     <img src="videportero.png" className='w-60 cursor-pointer' />

@@ -11,8 +11,16 @@ module.exports = {
       colors: {
         primary: "#EFD857",
         secondary: "#1961f1",
-        header: "#1961f1",
-        footer: "#25262C"
+        header: "#1357dd",
+        footer: "#25262C",
+        headertext: "#c6f91d",
+      },
+      backgroundSize: {
+        'auto': 'auto',
+        'cover': 'cover',
+        'contain': 'contain',
+        '120%': '120%',
+        '16': '4rem',
       }
     },
   },

@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react'
 import ScrollToTop from '../shared/ScrollToTop'
 import Header from '../shared/Header'
 import Footer from '../shared/Footer'
-import { RiCommunityFill, RiUserLocationFill } from "react-icons/ri";
+import { RiCommunityFill, RiUserLocationFill, RiUser3Line, RiPhoneFill } from "react-icons/ri";
+import CookieConsent from 'react-cookie-consent';
+import { Link } from 'react-router-dom';
 
 const Fade = require("react-reveal/Fade")
 
@@ -10,15 +12,26 @@ const Fade = require("react-reveal/Fade")
 const Contact = () => {
   const [loading, setLoading] = useState(false);
   useEffect(() => {
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-    }, 200);
+
   }, []);
   return (
     <div className=' min-h-screen flex flex-col items-stretch'>
       <ScrollToTop />
       <Header />
+      <CookieConsent
+        location="bottom"
+        buttonText="Aceptar Cookies"
+        cookieName="myAwesomeCookieName2"
+        style={{ background: "#2B373B", textAlign: "center" }}
+        buttonStyle={{ backgroundColor: "#1961F1", color: "#ffffff", fontSize: "18px" }}
+        expires={150}
+        declineButtonText="Rechazar"
+        declineButtonClasses='bg-header hover:opacity-80 transition-all duration-200'
+        buttonClasses="bg-header hover:opacity-80 transition-all duration-200"
+        enableDeclineButton
+      >
+        Este sitio web utiliza cookies para la mejora de experiencia de usuario{" "} <Link to='/cookies' className='text-gray-500 cursor-pointer'>Para mas información</Link>
+      </CookieConsent>
       <div className='flex-1 h-full pt-36 pb-24  flex flex-col items-center justify-start'>
         {loading ? (
           <div className='w-full pt-20 flex flex-col items-center'>
@@ -32,50 +45,62 @@ const Contact = () => {
           </div>
         )
           : (
-            <div className='flex flex-col gap-4 lg:px-40 container '>
-              <Fade>
+            <div className='flex flex-col gap-4 xl:px-40 container cursor-default'>
 
-                <h1 className='font-bold text-4xl text-center'>Contactanos</h1>
-                <p className='text-2xl px-6 text-gray-500 text-center '>Puedes enviarnos un email como llamarnos en el número de teléfono que aparece abajo.</p>
-                <div className='flex flex-col px-8 md:flex-row gap-8'>
-                  <div className=' mt-4 lg:w-3/4 bg-gray-200 px-8 py-8 rounded-lg shadow-xl'>
-                    <div className='grid grid-cols-1 md:grid-cols-2 justify-between md:gap-12'>
-                      <div className='flex flex-col'>
-                        <label className='text-lg text-gray-800'>Nombre</label>
-                        <input type="text" placeholder='Su Nombre' className='border-2 border-gray-800 rounded-lg px-2 py-2  bg-gray-100' />
+              <h1 className='font-bold text-4xl md:text-5xl text-center'>CONTACTANOS</h1>
+              <div className='flex flex-col px-8 mt-4 lg:flex-row gap-8'>
+                <div className='  lg:pl-40 lg:w-3/4 px-8  rounded-lg '>
+                  <Fade left >
+                  {/* #e4fbcb */}
+                    <div className='h-1/4   border-gray-300 flex flex-row border-2 rounded-lg mb-4 shadow-lg'>
+                      <div className='h-full flex flex-col w-[130px]  px-4 py-4 '>
+                        <RiUser3Line className='h-full w-full   px-4 py-4 rounded-full ' />
                       </div>
-                      <div className='flex flex-col mt-4 md:mt-0'>
-                        <label className='text-lg text-gray-800'>Apellidos</label>
-                        <input type="text" placeholder='Su apellido' className='border-2 border-gray-800 rounded-lg px-2 py-2  bg-gray-100' />
-                      </div>
-                    </div>
-                    <div className='grid grid-cols-1 md:grid-cols-2 justify-between mt-4 md:gap-12'>
-                      <div className='flex flex-col md:w-full'>
-                        <label className='text-lg text-gray-800'>Email</label>
-                        <input type="email" placeholder='email@email.com' className='border-2 border-gray-800 rounded-lg px-2 py-2   bg-gray-100' />
-                      </div>
-                      <div className='flex flex-col md:w-full mt-4 md:mt-0'>
-                        <label className='text-lg text-gray-800'>Telefono</label>
-                        <input type="phone" placeholder='677 777 777' className='border-2 border-gray-800 rounded-lg px-2 py-2  bg-gray-100' />
+                      <div className='h-full flex flex-col w-full   justify-center self-center'>
+                        <h1 className='text-2xl md:text-3xl font-bold italic tracking-wide'>Jimmy</h1>
+                        <h1 className='text-2xl text-gray-700 flex flex-row'><RiPhoneFill className='mt-1 text-green-700 mr-1' />678 39 27 81</h1>
                       </div>
                     </div>
-                    <div className='grid grid-cols-1 md:grid-cols-1 justify-between mt-4'>
-                      <div className='flex flex-col w-full'>
-                        <label className='text-lg text-gray-800'>Su mensaje</label>
-                        <textarea className='border-2 border-gray-800 rounded-lg px-2 py-2 w-full bg-gray-100 w-full h-24' />
+                  </Fade>
+                  <Fade left delay={300}>
+                    <div className='h-1/4  border-gray-300 flex flex-row border-2 rounded-lg mb-4 shadow-lg'>
+                      <div className='h-full flex flex-col w-[130px]  px-4 py-4 '>
+                        <RiUser3Line className='h-full w-full   px-4 py-4 rounded-full ' />
+                      </div>
+                      <div className='h-full flex flex-col w-full   justify-center self-center'>
+                        <h1 className='text-2xl md:text-3xl font-bold italic tracking-wide'>Cosmin</h1>
+                        <h1 className='text-2xl text-gray-700 flex flex-row'><RiPhoneFill className='text-green-700 mt-1 mr-1' />654 40 62 17</h1>
                       </div>
                     </div>
-                    <div className='grid grid-cols-1'>
-                      <p className='text-xs text-gray-500 mt-2 px-4'>Al enviar este formulario, acepta nuestros términos y condiciones y nuestra política de privacidad, que explica cómo podemos recopilar, usar y divulgar su información personal, incluso a terceros.</p>
+                  </Fade>
+                  <Fade left delay={600}>
+                    <div className='h-1/4  border-gray-300 flex flex-row border-2 rounded-lg mb-4 shadow-lg'>
+                      <div className='h-full flex flex-col w-[130px]  px-4 py-4 '>
+                        <RiUser3Line className='h-full w-full    px-4 py-4 rounded-full ' />
+                      </div>
+                      <div className='h-full flex flex-col w-full   justify-center self-center'>
+                        <h1 className='text-2xl md:text-3xl font-bold italic tracking-wide'>Mario</h1>
+                        <h1 className='text-2xl text-gray-700 flex flex-row'><RiPhoneFill className=' text-green-700 mt-1   mr-1' />633 27 35 17</h1>
+                      </div>
                     </div>
-                    <div className='grid grid-cols-1 text-center pt-4'>
-                      <button className='bg-secondary w-2/5 text-white py-2 px-8 rounded-xl text-xl hover:opacity-80 hover:scale-110 transition-all duration-200 shadow-xl justify-self-center'>Enviar</button>
+                  </Fade>
+                  <Fade left delay={900}>
+                    <div className='h-1/4  border-gray-300 flex flex-row border-2 rounded-lg mb-4 shadow-lg'>
+                      <div className='h-full flex flex-col w-[130px]  px-4 py-4 '>
+                        <RiUser3Line className='h-full w-full   px-4 py-4 rounded-full ' />
+                      </div>
+                      <div className='h-full flex flex-col w-full   justify-center self-center'>
+                        <h1 className='text-2xl md:text-3xl font-bold italic tracking-wide'>Julia</h1>
+                        <h1 className='text-2xl text-gray-700 flex flex-row'><RiPhoneFill className='mt-1  text-green-700 mr-1' />603 54 89 11</h1>
+                      </div>
                     </div>
-                  </div>
-                  <div className='justify-center flex flex-col mt-4 lg:w-1/4 bg-gray-200 px-8 py-8 rounded-lg shadow-xl gap-12'>
-                    <div className='text-center '>
-                      <RiCommunityFill className='text-4xl w-full' />
-                      <h4 className='text-lg font-semibold'>Servirus</h4>
+                  </Fade>
+                </div>
+                {/***********************************************/}
+                <Fade right >
+                  <div className='justify-center flex flex-col lg:mt-10 lg:w-1/4 mx-8  px-8 py-8 rounded-lg bg-[#e4fbcb]  border-gray-300 border-2 shadow-xl gap-12'>
+                    <div className='text-center self-center'>
+                      <img src='logo.svg' className='w-[150px] ' />
                     </div>
                     <div className='text-center '>
                       <RiUserLocationFill className='text-4xl w-full' />
@@ -84,19 +109,17 @@ const Contact = () => {
                     </div>
                     <div className='text-center '>
                       <RiCommunityFill className='text-4xl w-full' />
-                      <h4 className='text-lg font-semibold'>Teléfono</h4>
-                      <p className='text-lg text-center text-gray-700'>678 849 934</p>
+                      <p className='text-lg text-center text-gray-700'>servi.rus@live.com</p>
+                      <p className='text-lg text-center text-gray-700'>959 36 78 34</p>
 
                     </div>
-
-
                   </div>
+                </Fade>
 
-                </div>
-                <div className='fixed -z-10 bg-gray-500 w-full '>
+              </div>
+              <div className='fixed -z-10 bg-gray-500 w-full '>
 
-                </div>
-              </Fade>
+              </div>
 
             </div>
           )}

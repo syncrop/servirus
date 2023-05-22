@@ -7,7 +7,8 @@ import ScrollToTop from '../shared/ScrollToTop';
 import React, { useEffect, useMemo, useState } from 'react';
 import Maps from '../shared/Maps';
 import { GoogleMap, useLoadScript, Marker, useJsApiLoader, } from "@react-google-maps/api";
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
+import CookieConsent from 'react-cookie-consent';
 
 const mapContainerStyle = {
     width: '60vh',
@@ -41,6 +42,20 @@ function App() {
     return (
         <div className=' min-h-screen flex flex-col items-stretch'>
             <ScrollToTop />
+            <CookieConsent
+                location="bottom"
+                buttonText="Aceptar Cookies"
+                cookieName="myAwesomeCookieName2"
+                style={{ background: "#2B373B", textAlign: "center" }}
+                buttonStyle={{ backgroundColor: "#1961F1", color: "#ffffff", fontSize: "18px" }}
+                expires={150}
+                declineButtonText="Rechazar"
+                declineButtonClasses='bg-header hover:opacity-80 transition-all duration-200'
+                buttonClasses="bg-header hover:opacity-80 transition-all duration-200"
+                enableDeclineButton
+            >
+                Este sitio web utiliza cookies para la mejora de experiencia de usuario{" "} <Link to='/cookies' className='text-gray-500 cursor-pointer'>Para mas información</Link>
+            </CookieConsent>
             <Header />
             <div className=' flex-1   flex flex-col items-center justify-start gap-8'>
                 {!isLoaded ? (
@@ -61,18 +76,18 @@ function App() {
                                 <div className=" mx-14  2xl:mx-64   bg-cover " >
                                     <div className='flex pt-8 pb-8 w-full flex-col items-center justify-center backdrop-blur-md'>
                                         <Fade top >
-                                            <h1 className='text-4xl font-bold text-gray-800 tracking-normal '>Sobre Nosotros</h1>
+                                            <h1 className='text-4xl md:text-5xl font-bold text-gray-800 tracking-normal '>SOBRE NOSOTROS</h1>
                                         </Fade>
                                         <div className='grid lg:grid-cols-2 md:px-20 gap-12 lg:mt-8'>
-                                            <Fade left delay={'300'}>
-                                                <p className='text-xl  text-black font- text-justify mt-4 lg:mt-0'>
+                                            <Fade left delay={'100'}>
+                                                <p className='text-xl  text-black font- text-left mt-4 lg:mt-0'>
                                                     Somos una empresa dedicada  al sector de las puertas automáticas en la provincia de Huelva  y sus alrededores, con experiencia en el sector de
                                                     las puertas y del automatismo, lo que nos permite garantizarle una alta calidad en todos nuestros trabajos. Dedicada al montaje de instalaciones nuevas de puertas,
                                                     motorizaciones, etc, así como a la reparación y mantenimiento de puertas automáticas de todo tipo.
                                                 </p>
                                             </Fade>
                                             <div>
-                                                <Fade right delay={'300'} >
+                                                <Fade right delay={'100'} >
 
                                                     <p className='text-xl  text-gray-800 font-semibold '>
                                                         Ayudándole a encontrar las soluciones más adecuadas.
@@ -89,16 +104,30 @@ function App() {
                                     </div>
 
                                 </div>
-                                <div className="bg-[url('/public/servirus2.jpeg')] flex flex-col bg-cover">
-                                    <div className='backdrop-blur-md backdrop-brightness-75 flex flex-col items-center pt-4 pb-12'>
+                                <div className="bg-[url('/public/servirus2.jpeg')] flex flex-col bg-cover  ">
+                                    <div className='backdrop-blur-md backdrop-brightness-75 flex flex-col items-center pt-4 pb-12 px-8'>
 
-                                        <p className='text-3xl md:px-20 gap-12 mt-8 text-white font-semibold text-center'>Nos situamos en la localidad de San Juan del Puerto en Huelva en el <br></br> Polígono Dominicano </p>
+                                        <p className='text-2xl md:px-20 gap-12 mt-8 text-white font-normal text-center'>Nos situamos en la localidad de San Juan del Puerto en Huelva en el <br></br> Polígono Dominicano </p>
 
                                         <div className="flex flex-col items-center mt-4 ">
-                                            <div className='shadow-2xl hidden md:flex'>
+                                            <div className='shadow-2xl hidden md:flex lg:hidden '>
                                                 <GoogleMap
                                                     mapContainerStyle={{
-                                                        width: '60vh',
+                                                        width: '75vh',
+                                                        height: '50vh',
+                                                    }}
+                                                    center={center}
+                                                    zoom={11}
+
+                                                >
+                                                    <Marker position={center} />
+                                                </GoogleMap>
+
+                                            </div>
+                                            <div className='shadow-2xl hidden  lg:flex '>
+                                                <GoogleMap
+                                                    mapContainerStyle={{
+                                                        width: '85vh',
                                                         height: '50vh',
                                                     }}
                                                     center={center}
@@ -112,7 +141,7 @@ function App() {
                                             <div className='shadow-2xl  md:hidden'>
                                                 <GoogleMap
                                                     mapContainerStyle={{
-                                                        width: '35vh',
+                                                        width: '45vh',
                                                         height: '50vh',
                                                     }}
                                                     center={center}
@@ -128,7 +157,9 @@ function App() {
                                             Contactanos
                                         </NavLink>
                                     </div>
+
                                 </div>
+
                             </Fade>
                         </div>
                     )}
