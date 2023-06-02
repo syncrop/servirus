@@ -15,7 +15,7 @@ const Contact = () => {
 
   }, []);
   return (
-    <div className=' min-h-screen flex flex-col items-stretch'>
+    <div className='flex flex-col items-stretch min-h-screen '>
       <ScrollToTop />
       <Header />
       <CookieConsent
@@ -32,9 +32,9 @@ const Contact = () => {
       >
         Este sitio web utiliza cookies para la mejora de experiencia de usuario{" "} <Link to='/cookies' className='text-gray-500 cursor-pointer'>Para mas información</Link>
       </CookieConsent>
-      <div className='flex-1 h-full pt-36 pb-24  flex flex-col items-center justify-start'>
+      <div className='flex flex-col items-center justify-start flex-1 h-full pb-24 pt-36'>
         {loading ? (
-          <div className='w-full pt-20 flex flex-col items-center'>
+          <div className='flex flex-col items-center w-full pt-20'>
             <div
               className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
               role="status">
@@ -45,53 +45,54 @@ const Contact = () => {
           </div>
         )
           : (
-            <div className='flex flex-col gap-4 xl:px-40 container cursor-default'>
-
-              <h1 className='font-bold text-4xl md:text-5xl text-center'>CONTACTANOS</h1>
-              <div className='flex flex-col px-8 mt-4 lg:flex-row gap-8'>
-                <div className='  lg:pl-40 lg:w-3/4 px-8  rounded-lg '>
+            <div className='container flex flex-col gap-4 cursor-default xl:px-40'>
+            <Fade top >
+              <h1 className='text-4xl font-bold text-center 2xl:text-5xl'>CONTACTANOS</h1>
+            </Fade>
+              <div className='flex flex-col gap-8 px-8 mt-4 lg:flex-row'>
+                <div className='px-8 rounded-lg lg:pl-40 lg:w-3/4'>
                   <Fade left >
                   {/* #e4fbcb */}
-                    <div className='h-1/4   border-gray-300 flex flex-row border-2 rounded-lg mb-4 shadow-lg'>
+                    <div className='flex flex-row mb-4 border-2 border-gray-300 rounded-lg shadow-lg h-1/4'>
                       <div className='h-full flex flex-col w-[130px]  px-4 py-4 '>
-                        <RiUser3Line className='h-full w-full   px-4 py-4 rounded-full ' />
+                        <RiUser3Line className='w-full h-full px-4 py-4 rounded-full ' />
                       </div>
-                      <div className='h-full flex flex-col w-full   justify-center self-center'>
-                        <h1 className='text-2xl md:text-3xl font-bold italic tracking-wide'>Jimmy</h1>
-                        <h1 className='text-2xl text-gray-700 flex flex-row'><RiPhoneFill className='mt-1 text-green-700 mr-1' />678 39 27 81</h1>
+                      <div className='flex flex-col self-center justify-center w-full h-full'>
+                        <h1 className='text-2xl italic font-bold tracking-wide md:text-3xl'>Jimmy</h1>
+                        <h1 className='flex flex-row text-2xl text-gray-700'><RiPhoneFill className='mt-1 mr-1 text-green-700' />678 39 27 81</h1>
                       </div>
                     </div>
                   </Fade>
                   <Fade left delay={300}>
-                    <div className='h-1/4  border-gray-300 flex flex-row border-2 rounded-lg mb-4 shadow-lg'>
+                    <div className='flex flex-row mb-4 border-2 border-gray-300 rounded-lg shadow-lg h-1/4'>
                       <div className='h-full flex flex-col w-[130px]  px-4 py-4 '>
-                        <RiUser3Line className='h-full w-full   px-4 py-4 rounded-full ' />
+                        <RiUser3Line className='w-full h-full px-4 py-4 rounded-full ' />
                       </div>
-                      <div className='h-full flex flex-col w-full   justify-center self-center'>
-                        <h1 className='text-2xl md:text-3xl font-bold italic tracking-wide'>Cosmin</h1>
-                        <h1 className='text-2xl text-gray-700 flex flex-row'><RiPhoneFill className='text-green-700 mt-1 mr-1' />654 40 62 17</h1>
+                      <div className='flex flex-col self-center justify-center w-full h-full'>
+                        <h1 className='text-2xl italic font-bold tracking-wide md:text-3xl'>Cosmin</h1>
+                        <h1 className='flex flex-row text-2xl text-gray-700'><RiPhoneFill className='mt-1 mr-1 text-green-700' />654 40 62 17</h1>
                       </div>
                     </div>
                   </Fade>
                   <Fade left delay={600}>
-                    <div className='h-1/4  border-gray-300 flex flex-row border-2 rounded-lg mb-4 shadow-lg'>
+                    <div className='flex flex-row mb-4 border-2 border-gray-300 rounded-lg shadow-lg h-1/4'>
                       <div className='h-full flex flex-col w-[130px]  px-4 py-4 '>
-                        <RiUser3Line className='h-full w-full    px-4 py-4 rounded-full ' />
+                        <RiUser3Line className='w-full h-full px-4 py-4 rounded-full ' />
                       </div>
-                      <div className='h-full flex flex-col w-full   justify-center self-center'>
-                        <h1 className='text-2xl md:text-3xl font-bold italic tracking-wide'>Mario</h1>
-                        <h1 className='text-2xl text-gray-700 flex flex-row'><RiPhoneFill className=' text-green-700 mt-1   mr-1' />633 27 35 17</h1>
+                      <div className='flex flex-col self-center justify-center w-full h-full'>
+                        <h1 className='text-2xl italic font-bold tracking-wide md:text-3xl'>Mario</h1>
+                        <h1 className='flex flex-row text-2xl text-gray-700'><RiPhoneFill className='mt-1 mr-1 text-green-700 ' />633 27 35 17</h1>
                       </div>
                     </div>
                   </Fade>
                   <Fade left delay={900}>
-                    <div className='h-1/4  border-gray-300 flex flex-row border-2 rounded-lg mb-4 shadow-lg'>
+                    <div className='flex flex-row mb-4 border-2 border-gray-300 rounded-lg shadow-lg h-1/4'>
                       <div className='h-full flex flex-col w-[130px]  px-4 py-4 '>
-                        <RiUser3Line className='h-full w-full   px-4 py-4 rounded-full ' />
+                        <RiUser3Line className='w-full h-full px-4 py-4 rounded-full ' />
                       </div>
-                      <div className='h-full flex flex-col w-full   justify-center self-center'>
-                        <h1 className='text-2xl md:text-3xl font-bold italic tracking-wide'>Julia</h1>
-                        <h1 className='text-2xl text-gray-700 flex flex-row'><RiPhoneFill className='mt-1  text-green-700 mr-1' />603 54 89 11</h1>
+                      <div className='flex flex-col self-center justify-center w-full h-full'>
+                        <h1 className='text-2xl italic font-bold tracking-wide md:text-3xl'>Julia</h1>
+                        <h1 className='flex flex-row text-2xl text-gray-700'><RiPhoneFill className='mt-1 mr-1 text-green-700' />603 54 89 11</h1>
                       </div>
                     </div>
                   </Fade>
@@ -99,16 +100,16 @@ const Contact = () => {
                 {/***********************************************/}
                 <Fade right >
                   <div className='justify-center flex flex-col lg:mt-10 lg:w-1/4 mx-8  px-8 py-8 rounded-lg bg-[#e4fbcb]  border-gray-300 border-2 shadow-xl gap-12'>
-                    <div className='text-center self-center'>
+                    <div className='self-center text-center'>
                       <img src='logo.svg' className='w-[150px] ' />
                     </div>
                     <div className='text-center '>
-                      <RiUserLocationFill className='text-4xl w-full' />
+                      <RiUserLocationFill className='w-full text-4xl' />
                       <h4 className='text-lg font-semibold'>Localización</h4>
-                      <p className='text-xs md:text-sm  text-center text-gray-700'>Polígono Dominicano, San Juan del Puerto Huelva</p>
+                      <p className='text-xs text-center text-gray-700 md:text-sm'>Polígono Dominicano, San Juan del Puerto Huelva</p>
                     </div>
                     <div className='text-center '>
-                      <RiCommunityFill className='text-4xl w-full' />
+                      <RiCommunityFill className='w-full text-4xl' />
                       <p className='text-lg text-center text-gray-700'>servi.rus@live.com</p>
                       <p className='text-lg text-center text-gray-700'>959 36 78 34</p>
 
@@ -117,7 +118,7 @@ const Contact = () => {
                 </Fade>
 
               </div>
-              <div className='fixed -z-10 bg-gray-500 w-full '>
+              <div className='fixed w-full bg-gray-500 -z-10 '>
 
               </div>
 

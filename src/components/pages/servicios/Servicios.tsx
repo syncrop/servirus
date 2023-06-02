@@ -6,15 +6,7 @@ import CookieConsent from 'react-cookie-consent';
 import { Link, useParams } from 'react-router-dom';
 import { Automatismos } from '../../../data/Automatismos';
 import { RiPlayCircleFill} from "react-icons/ri";
-import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
-
-import { Pagination, Navigation, HashNavigation } from "swiper";
-import Player from '../../shared/Player';
+import SwiperComponent from './ui/SwiperComponent';
 
 const Fade = require("react-reveal/Fade")
 
@@ -37,6 +29,7 @@ const Servicios = () => {
     const [loading, setLoading] = useState(false);
     const [viewItem, setViewItem] = useState(createInitialItem())
     const [viewSwiper, setViewSwiper] = useState(createInitialSwiper())
+    const [itemShow, setItemShow] = useState(0)
 
     useEffect(() => {
         setViewItem(createInitialItem());
@@ -52,15 +45,14 @@ const Servicios = () => {
         showPlay: showPlay
     }]);
 
-    const handleViewSwiper = (obj: any) => setViewSwiper(obj); 
-
-    const showFile = (obj: any) => {
-        return obj && obj.type === 'mp4' ? <Player file={obj.src}/>  : <img className=' px-14 pt-6 pb-12  max-h-[630px] ' src={obj.src} alt=""  />;
-    }; 
+    const handleViewSwiper = (obj: any, index:number) => {
+        setViewSwiper(obj); 
+        setItemShow(index)
+    }
     
 
     return (
-        <div className=' min-h-screen flex flex-col items-stretch '>
+        <div className='flex flex-col items-stretch min-h-screen '>
             <ScrollToTop />
             <Header />
             <CookieConsent
@@ -78,11 +70,13 @@ const Servicios = () => {
                 Este sitio web utiliza cookies para la mejora de experiencia de usuario{" "} <Link to='/cookies' className='text-gray-500 cursor-pointer'>Para mas información</Link>
             </CookieConsent>
 
-            <div className='flex-1 h-full pt-36 pb-24 flex flex-col items-center justify-start'>
+            <div className='flex flex-col items-center justify-start flex-1 h-full pt-32 pb-24'>
                 {loading ? (
-                    <div className='w-full pt-20 flex flex-col items-center'>
+                    <div className='flex flex-col items-center w-full pt-20'>
                         <div
-                            className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+                            className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid 
+                            border-current border-r-transparent align-[-0.125em] 
+                            motion-reduce:animate-[spin_1.5s_linear_infinite]"
                             role="status">
                             <span
                                 className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"
@@ -95,7 +89,7 @@ const Servicios = () => {
                             <Fade>
                                 {Automatismos.map((item) => item.id && item.id === url ?
                                     <div className='container' >
-                                        <h1 className='font-bold text-4xl lg:text-5xl text-center'>{item.name}</h1>
+                                        <h1 className='text-4xl font-bold text-center 2xl:text-5xl '>{item.name}</h1>
                                         
                                         <div className='my-10  flex flex-col lg:flex-row lg:h-[620px]'>
                                             <div className={`flex max-w-full flex-col  lg:w-9/12 2xl:w-4/6 `}>
@@ -103,42 +97,9 @@ const Servicios = () => {
                                                 item.img && item.img[0].files.length > 0 ?  
                                                 <div>
                                                     <Fade left>
-                                                        <h1 className='text-3xl text-center font-semibold text-black'>{!viewSwiper[0].src ? item.img[0].desc : item.img[0].desc}</h1>
-                                                        <div className='flex h-full '>
-                                                        <Swiper
-                                                            spaceBetween={30}
-                                                            hashNavigation={{
-                                                            watchState: true,
-                                                            }}
-                                                            pagination={{
-                                                            clickable: true,
-                                                            }}
-                                                            navigation={true}
-                                                            modules={[Pagination, Navigation, HashNavigation]}
-                                                            className="mySwiper"
-                                                        >
-                                                            {
-                                                                !viewSwiper[0].src ? <div>
-                                                                    {
-                                                                        item.img[0].files.map((file, index) => 
-                                                                        <SwiperSlide data-hash={`slide${index}`} >
-                                                                            { () =>  showFile(file)}
-                                                                        </SwiperSlide>
-                                                                        )
-                                                                    }
-                                                                </div>
-                                                                : <div>
-                                                                    {
-                                                                      viewSwiper.map((file, index) => <div>
-                                                                          <SwiperSlide data-hash={`slide${index}`} >
-                                                                              { () =>  showFile(file)}
-                                                                          </SwiperSlide>
-                                                                      </div>
-                                                                      )
-                                                                    }
-                                                                </div>
-                                                            }
-                                                        </Swiper>
+                                                        <h1 className='text-3xl font-semibold text-center text-gray-800'>{item.img[itemShow].desc}</h1>
+                                                        <div className='grid h-full md:flex '>
+                                                        <SwiperComponent elements={viewSwiper} element0={item.img[0]}/>
                                                         </div>
                                                     </Fade>
                                                 </div>
@@ -146,19 +107,20 @@ const Servicios = () => {
                                             }
                                             </div>
                                            
-                                            <div className='flex flex-col md:flex-row lg:flex-col md:w-full lg:w-3/12 2xl:w-2/6 mt-10 lg:mt-0  gap-y-4 2xl:px-20'>
+                                            <div className='flex flex-col mt-10 md:flex-row lg:flex-col md:w-full lg:w-3/12 2xl:w-2/6 lg:mt-0 gap-y-4 2xl:px-20'>
                                             <Fade right >
                                             
                                                 { item.img && item.img.map((img, index) => 
-                                                    <div className='w-full mx-1 lg:mx-0  rounded-md bg-im active:scale-105 transition-all duration-100 select-none	' 
+                                                    <div className='w-full mx-1 transition-all duration-100 rounded-md select-none lg:mx-0 bg-im active:scale-105 ' 
                                                     onMouseEnter={() => handleViewItem(index, true)}
                                                     onMouseLeave={() => handleViewItem(index, false)} 
-                                                    onClick={() => handleViewSwiper(img.files)}>
+                                                    onClick={() => handleViewSwiper(img.files, index)}>
                                                         {
                                                             img.desc ? 
-                                                                <div>
+                                                                <div className=''>
                                                                     <div 
-                                                                        style={{backgroundImage: `url(${img.src})`}} className="w-full ease-in hover:bg-[length:500px]  hover:grayscale-[0.5] bg-center bg-[length:350px] h-44  transition-all duration-500 
+                                                                        style={{backgroundImage: `url(${img.src})`}} className="mx-auto w-2/4 md:w-full ease-in hover:bg-[length:500px]  
+                                                                        hover:grayscale-[0.5] bg-center bg-[length:350px] h-44  transition-all duration-500 
                                                                         lg:mx-auto border-[3px] border-black rounded-2xl shadow-xl cursor-pointer" >
                                                                         <p className={` text-center mt-12 h-full text-3xl text-white  font-bold`}><span className='flex w-full place-content-center'>
                                                                             <RiPlayCircleFill className={`${viewItem.find(item => item.id === index)?.showPlay ? 'visible' : 'invisible'} 
@@ -166,7 +128,7 @@ const Servicios = () => {
                                                                             transition-opacity ease-in duration-500 text-header text-6xl rounded-full bg-white`}/></span></p>
                                                                         
                                                                     </div>       
-                                                                    <p className='text-center mt-1 text-xl font-bold'>{img.desc}</p>
+                                                                    <p className='mt-1 text-xl font-bold text-center'>{img.desc}</p>
                                                                 </div>
                                                             : <div></div>
                                                         }
@@ -177,11 +139,11 @@ const Servicios = () => {
 
                                             </div>
                                         </div>
-                                        <div className='mt-32 lg:mt-4 w-full text-lg text-justify'>
+                                        <div className='w-full mt-8 text-lg text-justify lg:mt-4'>
                                             <Fade left cascade>
                                                 <div>
-                                                    <h1 className='px-6 text-black text-3xl pb-2'>Descripción</h1>
-                                                    {item.description.map(desc => <p  className='px-6 text-gray-700  '>{desc}</p>)}
+                                                    <h1 className='px-6 pb-2 text-3xl text-gray-800'>Descripción</h1>
+                                                    {item.description.map(desc => <p  className='px-6 text-gray-700 '>{desc}</p>)}
                                                 </div>
                                             </Fade>
                                         </div>

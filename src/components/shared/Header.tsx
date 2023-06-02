@@ -48,9 +48,8 @@ const Header = () => {
 
   return (
     <div>
-
-      <header className='shadow-xl bg-header fixed flex items-center w-full justify-between lg:justify-start pb-2 px-8 h-24 z-50'>
-        <div className='lg:w-1/6 text-center mb-2 '>
+      <header className='fixed z-50 flex items-center justify-between w-full h-24 px-8 pb-2 shadow-xl bg-header lg:justify-start'>
+        <div className='mb-2 text-center lg:w-1/6 '>
           <NavLink to='/' className='text-4xl  relative bg-header z-30 text-headertext servirus tracking-wider	font-[550]	flex flex-row'>
             <img src='/logoH.svg' className='w-[65px] mr-2 ' alt=''/> SERVIRUS <span className='text-headertext text-lg absolute top-9 left-[5.3rem] tracking-wider'>AUTOMATISMOS</span>{" "}
           </NavLink>
@@ -65,7 +64,7 @@ const Header = () => {
             Inicio</NavLink>
           <div>
             <Menu as="div">
-              <Menu.Button className="hover:scale-110 duration-100 hover:text-headertext " >
+              <Menu.Button className="duration-100 hover:scale-110 hover:text-headertext " >
                 Servicios
               </Menu.Button>
               <Transition
@@ -77,13 +76,13 @@ const Header = () => {
                 leaveFrom="transform opacity-100 scale-100"
                 leaveTo="transform opacity-0 scale-95"
               >
-                <Menu.Items className='animate fade absolute  z-10 -ml-1 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1  ring-black ring-opacity-5 focus:outline-none '>
+                <Menu.Items className='absolute z-10 w-56 mt-2 -ml-1 origin-top-right bg-white rounded-md shadow-lg animate fade ring-1 ring-black ring-opacity-5 focus:outline-none '>
                   {serviciosMenu.map(item =>
                     <div className="px-1 py-1 ">
                       <Menu.Item>
                         {({ active, close }) => (
                           <Menu as="div" className="">
-                            <Menu.Button className={`${active ? 'bg-gray-200 text-gray-700' : 'text-gray-900'
+                            <Menu.Button onClick={() => item.submenu ? '' :setShowMenu(false)} className={`${active ? 'bg-gray-200 text-gray-700' : 'text-gray-900'
                               } group flex w-full items-center rounded-md px-2 py-2 text-sm focus:bg-gray-200`} >
                               {item.name}
                             </Menu.Button>
@@ -104,7 +103,7 @@ const Header = () => {
           </div>
           <div>
             <Menu as="div" className="">
-              <Menu.Button className="hover:scale-110 duration-100 hover:text-headertext " onClick={() => setShowServicios(!showServicios)}>
+              <Menu.Button className="duration-100 hover:scale-110 hover:text-headertext " onClick={() => setShowServicios(!showServicios)}>
                 Mantenimientos
               </Menu.Button>
               <Transition
@@ -116,12 +115,12 @@ const Header = () => {
                 leaveFrom="transform opacity-100 scale-100"
                 leaveTo="transform opacity-0 scale-95"
               >
-                <Menu.Items className="animate fade absolute  z-10 -ml-1 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1  ring-black ring-opacity-5 focus:outline-none">
+                <Menu.Items className="absolute z-10 w-56 mt-2 -ml-1 origin-top-right bg-white rounded-md shadow-lg animate fade ring-1 ring-black ring-opacity-5 focus:outline-none">
                   {mantenimientosMenu.map(item =>
                     <div className="px-1 py-1 " key={item.name}>
                       <Menu.Item>
                         {({ active }) => (
-                          <NavLink to={item.url}
+                          <NavLink onClick={() => setShowMenu(false)} to={item.url}
                             className={`${active ? 'bg-gray-200 text-gray-700' : 'text-gray-900'
                               } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
                           >
@@ -146,7 +145,7 @@ const Header = () => {
               'hover:scale-110 duration-100 hover:text-headertext '
           }>Contacto</NavLink>
         </nav>
-        <button onClick={() => setShowMenu(!showMenu)} className='text-2xl px-2 pt-2 lg:hidden text-headertext'>
+        <button onClick={() => setShowMenu(!showMenu)} className='px-2 pt-2 text-2xl lg:hidden text-headertext'>
           {showMenu ? <RiCloseLine /> : <RiMenuLine />}
         </button>
       </header>
