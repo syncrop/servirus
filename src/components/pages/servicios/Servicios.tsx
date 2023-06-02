@@ -7,6 +7,7 @@ import { Link, useParams } from 'react-router-dom';
 import { Automatismos } from '../../../data/Automatismos';
 import { RiPlayCircleFill } from "react-icons/ri";
 import SwiperComponent from './ui/SwiperComponent';
+import Mantenimiento from '../../shared/Mantenimiento';
 
 const Fade = require("react-reveal/Fade")
 
@@ -153,7 +154,7 @@ const Servicios = () => {
                                                 </div>
                                                 : <div className='hidden'></div>
                                         )
-                                        : 'fea'
+                                        : <Mantenimiento />
                                 }
                             </Fade>
                         </div>
